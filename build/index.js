@@ -6,9 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const express_1 = __importDefault(require("express"));
 const loginRoutes_1 = require("./routes/loginRoutes");
 const body_parser_1 = __importDefault(require("body-parser"));
+const cookie_session_1 = __importDefault(require("cookie-session"));
 const app = (0, express_1.default)();
 // 透過 middleware 把參數寫在 req.body 裡面
 app.use(body_parser_1.default.urlencoded({ extended: true }));
+// 建立一個 req.session
+app.use((0, cookie_session_1.default)({ keys: ["dsidasld"] }));
 app.use(loginRoutes_1.router);
 app.listen(3000, () => {
     console.log("Listening on port 3000");
