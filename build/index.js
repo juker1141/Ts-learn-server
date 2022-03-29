@@ -7,6 +7,7 @@ const express_1 = __importDefault(require("express"));
 const loginRoutes_1 = require("./routes/loginRoutes");
 const body_parser_1 = __importDefault(require("body-parser"));
 const app = (0, express_1.default)();
+// 透過 middleware 把參數寫在 req.body 裡面
 app.use(body_parser_1.default.urlencoded({ extended: true }));
 app.use(loginRoutes_1.router);
 app.listen(3000, () => {
